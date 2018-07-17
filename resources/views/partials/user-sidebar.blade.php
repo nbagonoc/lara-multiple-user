@@ -1,9 +1,7 @@
 <div class="list-group">
     <a href="/dashboard" class="list-group-item list-group-item-action">Dashboard</a>
+    <a href="/profile" class="list-group-item list-group-item-action">Profile</a>
     @if(Auth::user()->role=="admin")
-        <a href="/admin" class="list-group-item list-group-item-action">Admin</a>
+        <a href="/users" class="list-group-item list-group-item-action">Manage Users</a>
     @endif
-    <a href="/dashboard" class="list-group-item list-group-item-action">Action 1</a>
-    <a href="/dashboard" class="list-group-item list-group-item-action">Action 2</a>
-    <a href="/dashboard" class="list-group-item list-group-item-action">Action 3</a>
 </div>
