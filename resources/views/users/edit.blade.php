@@ -10,6 +10,12 @@
                     {{Form::label('name', 'Name')}}
                     {{Form::text('name', $user->name, ['class'=>'form-control', 'placeholder'=>'Enter the Title'])}}
                 </div>
+                @if(Auth::user()->role=='admin')
+                    <div class="form-group">
+                        {{Form::label('role', 'Role')}}
+                        {{Form::select('role', ['moderator' => 'Moderator', 'user' => 'User'], $user->role, ['class'=>'form-control'])}}
+                    </div>
+                @endif
                 {{Form::hidden('_method','PATCH')}}
                 {{Form::submit('Edit', ['class'=>'btn btn-outline-success btn-sm'])}}
                 <a href="/users/show/{{$user->id}}" class="btn btn-outline-danger btn-sm">Cancel</a>

@@ -98,12 +98,15 @@ class UsersController extends Controller
     {
         // validate
         $this->validate($request, [
-            'name' => 'required'
+            'name' => 'required',
         ]);
 
         // update user
         $user = User::findOrFail($id);
         $user->name = $request->input('name');
+        if($request->role != ''){
+            $user->role = $request->input('role');
+        }
         $user->save();
 
         // redirect after update

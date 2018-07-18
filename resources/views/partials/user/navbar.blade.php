@@ -18,7 +18,7 @@
                 <span class="nav-link-text">Profile</span>
               </a>
             </li>
-            @if(Auth::user()->role=="admin")
+            @if(Auth::user()->role=='admin' || Auth::user()->role=='moderator')
               <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Manage User">
                 <a class="nav-link" href="/users">
                   <i class="fa fa-fw fa-users"></i>

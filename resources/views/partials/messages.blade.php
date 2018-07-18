@@ -1,33 +1,41 @@
+{{-- Errors --}}
 @if(count($errors) >0 )
-    <ul class="list-group mb-3">
-        @foreach($errors->all() as $error)
-        <li class="list-group-item list-group-item-danger">
+    @foreach($errors->all() as $error)
+        <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
             {{$error}}
-        </li>
-        @endforeach
-    </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endforeach
 @endif
 
-@if(session('success'))
-    <ul class="list-group mb-3">
-        <li class="list-group-item list-group-item-success">
-            {{session('success')}}
-        </li>
-    </ul>
-@endif
-
-@if(session('warning'))
-    <ul class="list-group mb-3">
-        <li class="list-group-item list-group-item-warning">
-            {{session('warning')}}
-        </li>
-    </ul>
-@endif
-
+{{-- Error --}}
 @if(session('error'))
-    <ul class="list-group mb-3">
-        <li class="list-group-item list-group-item-danger">
+    <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
             {{session('error')}}
-        </li>
-    </ul>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+
+{{-- Success --}}
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+        {{session('success')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
+
+{{-- Warning --}}
+@if(session('warning'))
+    <div class="alert alert-warning alert-dismissible fade show mb-3" role="alert">
+            {{session('warning')}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 @endif
