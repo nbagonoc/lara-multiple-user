@@ -9,6 +9,7 @@
   <meta name="author" content="">
   <title>SB Admin - Start Bootstrap Template</title>
   <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="https://datatables.yajrabox.com/css/datatables.bootstrap.css" rel="stylesheet">
   <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
   <link href="{{asset('css/sb-admin.min.css')}}" rel="stylesheet">
 </head>

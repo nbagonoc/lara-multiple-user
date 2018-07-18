@@ -5,7 +5,21 @@
     <div class="card">
             <div class="card-header">Manage Users</div>
             <div class="card-body">
-                @if(count($users)>=1)
+                {{-- Data table --}}
+                <table id="users-table" class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                </table>
+                <hr>
+                {{-- regular table --}}
+                {{-- @if(count($users)>=1)
                     <table class="table">
                         <thead>
                             <tr>
@@ -36,7 +50,7 @@
                     {{$users->links()}}
                 @else
                     <h3 class="text-center text-capitalize">No users</h3>
-                @endif
+                @endif --}}
             </div>
         </div>
 @endsection

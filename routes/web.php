@@ -33,6 +33,12 @@ Route::get('/users', [
     'as' => 'users.index'
 ])->middleware('admin');
 
+// GET | users data using dataTable
+Route::get('/users/data', [
+    'uses' => 'UsersController@indexData',
+    'as' => 'users.indexData'
+])->middleware('admin');
+
 // GET | read user
 Route::get('/users/show/{id}', [
     'uses' => 'UsersController@show',
