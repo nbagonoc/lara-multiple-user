@@ -35,8 +35,13 @@
               </a>
             </li>
           </ul>
-          {{-- logout --}}
           <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/profile">
+                  {{Auth::user()->name}}
+                </a>
+              </li>
+            {{-- logout --}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}"
                 onclick="event.preventDefault();

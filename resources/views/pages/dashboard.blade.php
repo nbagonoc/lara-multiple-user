@@ -8,19 +8,23 @@
             You are logged in!
         </div>
     </div>
-    <div class="card mt-3">
-        <div class="card-header">User Sign-up</div>
-        <div class="card-body">
-            {!! $chart->html() !!}
-        </div>
-    </div>
-    <div class="card mt-3">
-        <div class="card-header">User Roles</div>
-        <div class="card-body">
-            {!! $pieChart->html() !!}
-        </div>
-    </div>
     {!! Charts::scripts() !!}
-    {!! $chart->script() !!}
-    {!! $pieChart->script() !!}
+    @if(Auth::user()->role=='admin' || Auth::user()->role=='moderator')
+        <div class="card mt-3">
+            <div class="card-header">User Sign-up</div>
+            <div class="card-body">
+                {!! $chart->html() !!}
+                {!! $chart->script() !!}
+            </div>
+        </div>
+    @endif
+    @if(Auth::user()->role=='admin')
+        <div class="card mt-3">
+            <div class="card-header">User Roles</div>
+            <div class="card-body">
+                {!! $pieChart->html() !!}
+                {!! $pieChart->script() !!}
+            </div>
+        </div>
+    @endif
 @endsection

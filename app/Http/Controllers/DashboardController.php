@@ -27,7 +27,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $users = User::where('role', '!=', 'admin')->get();
+        // ChartJS
+        $users = User::where('role', 'user')->get();
         $adminRole = User::where('role','admin')->get()->count();
         $moderatorRole = User::where('role','moderator')->get()->count();
         $userRole = User::where('role','user')->get()->count();
@@ -43,7 +44,8 @@ class DashboardController extends Controller
                 ->labels(['Administrators','Moderators','Users'])
                 ->values([$adminRole,$moderatorRole,$userRole])
                 ->responsive(true);
-                
+        // End ChartJS
+
         return view('pages.dashboard',compact('chart','pieChart'));
     }
 }
