@@ -52,22 +52,19 @@ class DashboardController extends Controller
     
     // Genrate Excel file
     public function generateExcel(){
-        // Laravel Excel
-        $usersData = DB::table('users')->get()->toArray();
+        $usersData = User::where('role', 'user')->get();
         $usersArray[] = array('Name', 'Email');
-        foreach($usersData as $userData)
-        {
-        $usersArray[] = array(
-            'Name'  => $userData->name,
-            'Email'   => $userData->email,
-        );
+        foreach($usersData as $userData){
+            $usersArray[] = array(
+                'Name'  => $userData->name,
+                'Email'   => $userData->email,
+            );
         }
         Excel::create('UsersData', function($excel) use ($usersArray){
-        $excel->setTitle('User Data');
-        $excel->sheet('User Data', function($sheet) use ($usersArray){
-        $sheet->fromArray($usersArray, null, 'A1', false, false);
-        });
-        })->download('xlsx');
-        // End Laravel Excel
+            $excel->setTitle('User Data');
+            $excel->sheet('User Data', function($sheet) use ($usersArray){
+                $sheet->fromArray($usersArray, null, 'A1', false, false);
+            });
+        })->export('xlsx');
     }
 }
