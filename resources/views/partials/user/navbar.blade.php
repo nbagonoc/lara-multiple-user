@@ -38,6 +38,7 @@
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <a class="nav-link" href="/profile">
+                  <i class="fa fa-fw fa-user"></i>
                   {{Auth::user()->name}}
                 </a>
               </li>
