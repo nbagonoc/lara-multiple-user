@@ -34,7 +34,7 @@ class DashboardController extends Controller
         $userRole = User::where('role','user')->get()->count();
 
         $chart = Charts::database($users, 'bar','highcharts')
-                ->title('Monthly Sing-up')
+                ->title('Monthly Sign-up')
                 ->elementLabel('Total Users')
                 ->responsive(true)
                 ->groupByMonth(date('Y'),true);

@@ -5,7 +5,10 @@
     <div class="card">
         <div class="card-header">Dashboard</div>
         <div class="card-body">
-            You are logged in!
+            Welcome, {{Auth::user()->name}}
+            @if(Auth::user()->role=='admin' || Auth::user()->role=='moderator')
+                <button class="btn btn-outline-success btn-sm d-block mt-3">Export users data to CSV</button>
+            @endif
         </div>
     </div>
     {!! Charts::scripts() !!}

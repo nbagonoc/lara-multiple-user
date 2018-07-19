@@ -34,36 +34,36 @@ Route::patch('/profile/update/{id}', [
 Route::get('/users', [
     'uses' => 'UsersController@index',
     'as' => 'users.index'
-])->middleware('moderator');
+])->middleware('auth','moderator');
 
 // GET | users data using dataTable
 Route::get('/users/data', [
     'uses' => 'UsersController@indexData',
     'as' => 'users.indexData'
-])->middleware('moderator');
+])->middleware('auth','moderator');
 
 // GET | read user
 Route::get('/users/show/{id}', [
     'uses' => 'UsersController@show',
     'as' => 'users.show'
-])->middleware('moderator');
+])->middleware('auth','moderator');
 
 // GET | edit user
 Route::get('/users/edit/{id}', [
     'uses' => 'UsersController@edit',
     'as' => 'users.edit'  
-])->middleware('moderator');
+])->middleware('auth','moderator');
 
 // PATCH | edit user process
 Route::patch('/users/update/{id}',[
     'uses' => 'UsersController@update',
     'as' => 'users.update' 
-])->middleware('moderator');
+])->middleware('auth','moderator');
 
 // DELETE | delete user
 Route::delete('/users/delete/{id}',[
     'uses' => 'UsersController@destroy',
     'as' => 'users.delete' 
-])->middleware('moderator');
+])->middleware('auth','moderator');
 
 Auth::routes();
