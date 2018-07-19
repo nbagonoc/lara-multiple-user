@@ -7,7 +7,10 @@ Route::get('/', [
 ]);
 
 // GET | dashboard
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::get('/dashboard', [
+    'uses'=>'DashboardController@index',
+    'as'=>'pages.dashboard'
+]);
 
 // GET | profile
 Route::get('/profile', [
