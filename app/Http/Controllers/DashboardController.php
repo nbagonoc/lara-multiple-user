@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Charts;
+use Excel;
 // use ConsoleTVs\Charts\Facades\Charts;
-// use DB;
+use DB;
 
 class DashboardController extends Controller
 {
@@ -47,5 +48,26 @@ class DashboardController extends Controller
         // End ChartJS
 
         return view('pages.dashboard',compact('chart','pieChart'));
+    }
+    
+    // Genrate Excel file
+    public function generateExcel(){
+        // Laravel Excel
+        $usersData = DB::table('users')->get()->toArray();
+        $usersArray[] = array('Name', 'Email');
+        foreach($usersData as $userData)
+        {
+        $usersArray[] = array(
+            'Name'  => $userData->name,
+            'Email'   => $userData->email,
+        );
+        }
+        Excel::create('UsersData', function($excel) use ($usersArray){
+        $excel->setTitle('User Data');
+        $excel->sheet('User Data', function($sheet) use ($usersArray){
+        $sheet->fromArray($usersArray, null, 'A1', false, false);
+        });
+        })->download('xlsx');
+        // End Laravel Excel
     }
 }

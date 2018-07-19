@@ -5,9 +5,9 @@
     <div class="card">
         <div class="card-header">Dashboard</div>
         <div class="card-body">
-            Welcome, {{Auth::user()->name}}
+            <p>Welcome, {{Auth::user()->name}}</p>
             @if(Auth::user()->role=='admin' || Auth::user()->role=='moderator')
-                <button class="btn btn-outline-success btn-sm d-block mt-3">Export users data to CSV</button>
+                <a href="{{ route('generate.excel') }}" class="btn btn-outline-success btn-sm">Export users data to Excel file</a>
             @endif
         </div>
     </div>

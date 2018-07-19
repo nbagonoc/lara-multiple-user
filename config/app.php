@@ -149,6 +149,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         ConsoleTVs\Charts\ChartsServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
         /*
@@ -216,6 +217,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
         'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

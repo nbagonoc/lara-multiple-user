@@ -12,6 +12,12 @@ Route::get('/dashboard', [
     'as'=>'pages.dashboard'
 ]);
 
+// GET | generate excel/CSV
+Route::get('/dashboard/generate-excel', [
+    'uses'=>'DashboardController@generateExcel',
+    'as'=>'generate.excel'
+])->middleware('auth','moderator');
+
 // GET | profile
 Route::get('/profile', [
     'uses' => 'PagesController@profile',
